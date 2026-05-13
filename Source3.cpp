@@ -3,7 +3,7 @@
 
 using namespace std;
 
-// Базов клас
+//Р±Р°Р·РѕРІ РєР»Р°СЃ
 class CelestialBody {
 protected:
     string name;
@@ -14,18 +14,16 @@ public:
     CelestialBody(string n, double m = 1.0) : name(n), mass(m) {}
 
     virtual ~CelestialBody() {}
-
-    // Виртуален метод за информация
     virtual void printInfo() const {
         cout << "Body: " << name << ", Mass: " << mass;
     }
 
-    // абстрактен
+    // Р°Р±СЃС‚СЂР°РєС‚РµРЅ
     virtual void performAction() const = 0;
 
-    // собствени методи
+    // СЃРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void rename(string newName) { name = newName; }
-    void calculateGravity() const { cout << "  [System] Calculating gravity for " << name << "..." << endl; }
+    void calculateGravity() const { cout << " Calculating gravity for " << name << "..." << endl; }
 };
 
 class Star : public CelestialBody {
@@ -44,7 +42,7 @@ public:
 
     void performAction() const override { fusion(); }
 
-    // Собствени методи
+    // РЎРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void fusion() const { cout << name << " is performing nuclear fusion." << endl; }
     void checkStability() const { cout << name << " is gravitationally stable." << endl; }
 };
@@ -67,12 +65,12 @@ public:
 
     void performAction() const override { orbit(); }
 
-    // Собствени методи
+    // РЎРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void orbit() const { cout << name << " is orbiting its parent star." << endl; }
     void rotate() const { cout << name << " is rotating on its axis." << endl; }
 };
 
-// RedGiant - наследява Star
+// RedGiant - РЅР°СЃР»РµРґСЏРІР° Star
 class RedGiant : public Star {
 protected:
     double luminosity;
@@ -86,12 +84,12 @@ public:
         cout << " Luminosity: " << luminosity << " Suns" << endl;
     }
 
-    // Собствени методи
+    // СЃРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void expand() const { cout << name << " is expanding rapidly!" << endl; }
     void pulse() const { cout << name << " is pulsating light." << endl; }
 };
 
-// GasGiant - наследява Planet
+// GasGiant - РЅР°СЃР»РµРґСЏРІР° Planet
 class GasGiant : public Planet {
     string dominantGas;
 
@@ -104,13 +102,13 @@ public:
         cout << " Dominant Gas: " << dominantGas << endl;
     }
 
-    // Собствени методи
+    // СЃРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void triggerStorm() const { cout << " Great Storm active on " << name << "!" << endl; }
     void identifyRings() const { cout << " Rings detected around " << name << "." << endl; }
 };
 
 
-// Допълнителен клас, наследяващ от Planet
+// Р”РѕРїСЉР»РЅРёС‚РµР»РµРЅ РєР»Р°СЃ, РЅР°СЃР»РµРґСЏРІР°С‰ РѕС‚ Planet
 class TerrestrialPlanet : public Planet {
     string crustComposition;
 
@@ -123,12 +121,12 @@ public:
         cout << " Crust: " << crustComposition << endl;
     }
 
-    // Собствени методи
+    // СЃРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void tectonicActivity() const { cout << " Tectonic plates shifting." << endl; }
     void volcanicEruption() const { cout << " Volcanic activity detected!" << endl; }
 };
 
-// Допълнителен клас, наследяващ от RedGiant
+// Р”РѕРїСЉР»РЅРёС‚РµР»РµРЅ РєР»Р°СЃ, РЅР°СЃР»РµРґСЏРІР°С‰ РѕС‚ RedGiant
 class Supernova : public RedGiant {
     double energyOutput;
 
@@ -141,13 +139,13 @@ public:
         cout << "  !!! STATUS: SUPERNOVA | Energy: " << energyOutput << " Joules" << endl;
     }
 
-    // Собствени методи
+    // СЃРѕР±СЃС‚РІРµРЅРё РјРµС‚РѕРґРё
     void explode() const { cout << name << " HAS GONE SUPERNOVA!" << endl; }
     void createNeutronStar() const { cout << " A neutron star is forming at the core." << endl; }
 };
 
 int main() {
-    // Масив от обекти чрез указатели
+    //  РњР°СЃРёРІ РѕС‚ РѕР±РµРєС‚Рё С‡СЂРµР· СѓРєР°Р·Р°С‚РµР»Рё
     const int numBodies = 6;
     CelestialBody* universe[numBodies];
 
@@ -161,17 +159,17 @@ int main() {
     cout << "      GALAXY SYSTEM" << endl;
 
     for (int i = 0; i < numBodies; i++) {
-        // Визуализация на характеристиките
+        // РёР·СѓР°Р»РёР·Р°С†РёСЏ РЅР° С…Р°СЂР°РєС‚РµСЂРёСЃС‚РёРєРёС‚Рµ
         universe[i]->printInfo();
 
-        // Извикване на собствен метод (чрез виртуалния интерфейс или базовия клас)
+        // РР·РІРёРєРІР°РЅРµ РЅР° СЃРѕР±СЃС‚РІРµРЅ РјРµС‚РѕРґ 
         universe[i]->calculateGravity();
         universe[i]->performAction();
 
         cout << "--------------------------------------------------" << endl;
     }
 
-    // Освобождаване на динамичната памет
+    // РћСЃРІРѕР±РѕР¶РґР°РІР°РЅРµ РЅР° РґРёРЅР°РјРёС‡РЅР°С‚Р° РїР°РјРµС‚
     for (int i = 0; i < numBodies; i++) {
         delete universe[i];
     }
