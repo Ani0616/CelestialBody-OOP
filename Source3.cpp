@@ -77,14 +77,15 @@ public:
 class RedGiant : public Star {
 protected:
     double luminosity;
+    double age;
 
 public:
-    RedGiant() : Star(), luminosity(100.0) {}
-    RedGiant(string n, double m, double t, double lum = 500.0) : Star(n, m, t, "Red Giant"), luminosity(lum) {}
+    RedGiant() : Star(), luminosity(100.0), age(10.0) {}
+    RedGiant(string n, double m, double t, double lum = 500.0, double a = 12.0) : Star(n, m, t, "Red Giant"), luminosity(lum), age(a) {}
 
     void printInfo() const override {
         Star::printInfo();
-        cout << " Luminosity: " << luminosity << " Suns" << endl;
+        cout << " Luminosity: " << luminosity << " Suns, Age:" << age << " billion years" << endl;
     }
 
     // собствени методи
@@ -95,14 +96,15 @@ public:
 // GasGiant - наследява Planet
 class GasGiant : public Planet {
     string dominantGas;
+    bool hasRings;
 
 public:
-    GasGiant() : Planet(), dominantGas("Hydrogen") {}
-    GasGiant(string n, double m, int mn, string gas = "Helium") : Planet(n, m, mn, true), dominantGas(gas) {}
+    GasGiant() : Planet(), dominantGas("Hydrogen"), hasRings(true) {}
+    GasGiant(string n, double m, int mn, string gas = "Helium", bool rings = true) : Planet(n, m, mn, true), dominantGas(gas), hasRings(rings) {}
 
     void printInfo() const override {
         Planet::printInfo();
-        cout << " Dominant Gas: " << dominantGas << endl;
+        cout << " Dominant Gas: " << dominantGas << ", Rings:" << (hasRings ? "Yes" : "No") << endl;
     }
 
     // собствени методи
@@ -114,14 +116,15 @@ public:
 // Допълнителен клас, наследяващ от Planet
 class TerrestrialPlanet : public Planet {
     string crustComposition;
+    bool isHabitable;
 
 public:
-    TerrestrialPlanet() : Planet(), crustComposition("Silicate") {}
-    TerrestrialPlanet(string n, double m, int mn, string crust = "Rocky") : Planet(n, m, mn, true), crustComposition(crust) {}
+    TerrestrialPlanet() : Planet(), crustComposition("Silicate"), isHabitable(false) {}
+    TerrestrialPlanet(string n, double m, int mn, string crust = "Rocky", bool habitable = false) : Planet(n, m, mn, true), crustComposition(crust), isHabitable(habitable) {}
 
     void printInfo() const override {
         Planet::printInfo();
-        cout << " Crust: " << crustComposition << endl;
+        cout << " Crust: " << crustComposition << ", Habitable: " << (isHabitable ? "Yes" : "No") << endl;
     }
 
     // собствени методи
@@ -132,14 +135,15 @@ public:
 // Допълнителен клас, наследяващ от RedGiant
 class Supernova : public RedGiant {
     double energyOutput;
+    string remnantType
 
 public:
-    Supernova() : RedGiant(), energyOutput(1e44) {}
-    Supernova(string n, double m, double t, double energy = 5e44) : RedGiant(n, m, t, 10000.0), energyOutput(energy) {}
+    Supernova() : RedGiant(), energyOutput(1e44), remnantType ("Neutron Star") {}
+    Supernova(string n, double m, double t, double energy = 5e44, string remnant = "Black Hole") : RedGiant(n, m, t, 10000.0), energyOutput(energy), remnantType(remnant) {}
 
     void printInfo() const override {
         RedGiant::printInfo();
-        cout << "   SUPERNOVA,  Energy: " << energyOutput << " Joules" << endl;
+        cout << "   SUPERNOVA,  Energy: " << energyOutput << " Joules, Remnant: " << remnantType << endl;
     }
 
     // собствени методи
@@ -154,10 +158,10 @@ int main() {
 
     universe[0] = new Star("Sun", 1.0, 5778);
     universe[1] = new Planet("Mars", 0.107, 2);
-    universe[2] = new RedGiant("Betelgeuse", 11.6, 3500, 126000);
-    universe[3] = new GasGiant("Jupiter", 317.8, 79, "Hydrogen/Helium");
-    universe[4] = new TerrestrialPlanet("Earth", 1.0, 1, "Liquid Water/Basalt");
-    universe[5] = new Supernova("SN 1987A", 20.0, 25000, 1e46);
+    universe[2] = new RedGiant("Betelgeuse", 11.6, 3500, 126000, 0.01);
+    universe[3] = new GasGiant("Jupiter", 317.8, 79, "Hydrogen/Helium", true);
+    universe[4] = new TerrestrialPlanet("Earth", 1.0, 1, "Liquid Water/Basalt", true);
+    universe[5] = new Supernova("SN 1987A", 20.0, 25000, 1e46, "Neutron Star");
 
     cout << "      GALAXY SYSTEM" << endl;
 
