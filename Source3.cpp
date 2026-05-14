@@ -40,7 +40,7 @@ public:
 
     void printInfo() const override {
         CelestialBody::printInfo();
-        cout << " | Temp: " << temperature << "K | Type: " << spectralType << endl;
+        cout << "  Temp: " << temperature << "K , Type: " << spectralType << endl;
     }
 
     void performAction() const override { fusion(); }
@@ -63,7 +63,7 @@ public:
 
     void printInfo() const override {
         CelestialBody::printInfo();
-        cout << " | Moons: " << moons << " | Atmosphere: " << (hasAtmosphere ? "Yes" : "No") << endl;
+        cout << "  Moons: " << moons << " , Atmosphere: " << (hasAtmosphere ? "Yes" : "No") << endl;
     }
 
     void performAction() const override { orbit(); }
@@ -139,7 +139,7 @@ public:
 
     void printInfo() const override {
         RedGiant::printInfo();
-        cout << "  !!! STATUS: SUPERNOVA | Energy: " << energyOutput << " Joules" << endl;
+        cout << "   SUPERNOVA,  Energy: " << energyOutput << " Joules" << endl;
     }
 
     // собствени методи
