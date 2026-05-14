@@ -23,7 +23,10 @@ public:
 
     // собствени методи
     void rename(string newName) { name = newName; }
-    void calculateGravity() const { cout << " Calculating gravity for " << name << "..." << endl; }
+    void displayStatus() const {
+        if (mass > 1000) { cout << name << " is classified as a massive celestial object." << endl;}
+        else { cout << name << " is classified as a medium-sized celestial object." << endl;}
+    }
 };
 
 class Star : public CelestialBody {
@@ -163,7 +166,7 @@ int main() {
         universe[i]->printInfo();
 
         // Извикване на собствен метод 
-        universe[i]->calculateGravity();
+        universe[i]->displayStatus();
         universe[i]->performAction();
 
         cout << "--------------------------------------------------" << endl;
