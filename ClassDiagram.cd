@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="CelestialBody" Collapsed="true">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AICAAAAAAAAAQAACAAAAAAAAACAFAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Star">
+    <Position X="7" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAQAACAAAAAAAAAAAgAAAAgAQAAAAAAEA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Planet">
+    <Position X="10.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAQAQCAAAQAAAAACAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RedGiant">
+    <Position X="7" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAEAACAAQAAAAAACAAAAAgAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GasGiant">
+    <Position X="9.25" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAQEAAAAAAAAAABAEAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TerrestrialPlanet">
+    <Position X="11.5" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAACAACAAAIAAAAAAAIAAAAAAAIAA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Supernova">
+    <Position X="7" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgQAAACAAAAAAAAAAAAAAAAQAAAAAAgAA=</HashCode>
+      <FileName>учене.cpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
