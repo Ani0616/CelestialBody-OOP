@@ -135,7 +135,7 @@ public:
 // Допълнителен клас, наследяващ от RedGiant
 class Supernova : public RedGiant {
     double energyOutput;
-    string remnantType
+    string remnantType;
 
 public:
     Supernova() : RedGiant(), energyOutput(1e44), remnantType ("Neutron Star") {}
